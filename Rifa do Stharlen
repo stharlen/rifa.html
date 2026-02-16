@@ -1,84 +1,182 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Rifa Online do Stharlen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifa Oficial</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        padding: 20px;
-    }
-    h1 {
-        text-align: center;
-    }
-    .numbers {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 8px;
-        max-width: 500px;
-        margin: 20px auto;
-    }
-    .number {
-        padding: 12px;
-        background: #fff;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        text-align: center;
-        font-weight: bold;
-        border-radius: 5px;
-    }
-    .number.selected {
-        background: #4CAF50;
-        color: white;
-    }
-    .number.reserved {
-        background: #999;
-        color: white;
-        cursor: not-allowed;
-    }
-    .form {
-        max-width: 400px;
-        margin: 20px auto;
-        background: #fff;
-        padding: 15px;
-        border-radius: 5px;
-    }
-    input, button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-    }
-    button {
-        background: #4CAF50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    .pix {
-        background: #e8f5e9;
-        padding: 10px;
-        margin-top: 10px;
-        border-radius: 5px;
-        font-weight: bold;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('https://images.unsplash.com/photo-1526406915894-7bcd65f60845') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.75);
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* CARROSSEL */
+.carousel {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+}
+
+.carousel img.active {
+    display: block;
+}
+
+/* NÚMEROS */
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.number {
+    padding: 10px;
+    background: #ffffff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.number:hover {
+    transform: scale(1.05);
+}
+
+.number.selected {
+    background: #28a745;
+    color: #fff;
+}
+
+.number.reserved {
+    background: #6c757d;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+/* FORM */
+.form {
+    max-width: 450px;
+    margin: 20px auto;
+    background: #ffffff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.form h3 {
+    margin-top: 0;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+.pix-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 6px;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.8);
+    margin-top: 40px;
+    font-size: 14px;
+    color: #ccc;
+}
 </style>
 </head>
 
 <body>
+<div class="overlay">
 
-<h1>🎟️ Rifa Online</h1>
-<p style="text-align:center;">Valor por número: <strong>R$ 10,00</strong></p>
+<header>
+    <h1>🎟️ Rifa Oficial</h1>
+    <p>Valor por número: <strong>R$ 10,00</strong></p>
+</header>
 
+<!-- CARROSSEL -->
+<div class="carousel">
+    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db" class="active">
+    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
+    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
+</div>
+
+<!-- NÚMEROS -->
 <div class="numbers" id="numbers"></div>
 
+<!-- FORMULÁRIO -->
 <div class="form">
-    <h3>Dados do Comprador</h3>
-    <input type="text" id="name" placeholder="Nome completo" required>
-    <input type="text" id="whatsapp" placeholder="WhatsApp (DDD + número)" required>
-    <button onclick="finalizarCompra()">Finalizar Compra</button>
-
+    <h3>Finalizar Compra</h3>
+    <input type="text" id="name" placeholder="Nome completo">
+    <input type="text" id="whatsapp" placeholder="WhatsApp com DDD">
+    <button onclick="finalizarCompra()">Reservar e Pagar</button>
     <div id="resultado"></div>
+</div>
+
+<footer>
+    © 2026 Rifa Oficial | Pagamento via Pix | 
+    Chave Pix: <strong>stharlen1@gmail.com</strong><br>
+    Sistema seguro de reserva automática.
+</footer>
+
 </div>
 
 <script>
@@ -91,7 +189,6 @@ let reservedNumbers = [];
 
 const numbersDiv = document.getElementById("numbers");
 
-// Criar números da rifa
 for (let i = 1; i <= totalNumbers; i++) {
     const div = document.createElement("div");
     div.className = "number";
@@ -123,37 +220,39 @@ function finalizarCompra() {
 
     const total = selectedNumbers.length * valorPorNumero;
 
-    // Reservar números
     selectedNumbers.forEach(num => reservedNumbers.push(num));
     document.querySelectorAll(".number.selected").forEach(el => {
         el.classList.remove("selected");
         el.classList.add("reserved");
     });
 
-    const mensagemWhats = `
-Olá ${name}!
-Você reservou os números: ${selectedNumbers.join(", ")}
-Valor total: R$ ${total},00
-
-Chave Pix:
-${pixKey}
-
-Após o pagamento, seus números estão confirmados. ✅
-`;
+    const mensagem = `Olá ${name}! 
+Você reservou os números: ${selectedNumbers.join(", ")} 
+Valor total: R$ ${total},00 
+Chave Pix: ${pixKey}`;
 
     document.getElementById("resultado").innerHTML = `
-        <div class="pix">
-            <p>💰 Valor total: R$ ${total},00</p>
-            <p>🔑 Chave Pix: ${pixKey}</p>
-            <p>📲 Envio dos números via WhatsApp</p>
-            <a href="https://wa.me/55${whatsapp}?text=${encodeURIComponent(mensagemWhats)}" target="_blank">
-                <button>Enviar confirmação no WhatsApp</button>
+        <div class="pix-box">
+            <p><strong>Total:</strong> R$ ${total},00</p>
+            <p><strong>Chave Pix:</strong> ${pixKey}</p>
+            <a href="https://wa.me/55${whatsapp}?text=${encodeURIComponent(mensagem)}" target="_blank">
+                <button>Enviar Comprovante no WhatsApp</button>
             </a>
         </div>
     `;
 
     selectedNumbers = [];
 }
+
+/* CARROSSEL AUTOMÁTICO */
+let slideIndex = 0;
+const slides = document.querySelectorAll(".carousel img");
+
+setInterval(() => {
+    slides[slideIndex].classList.remove("active");
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+}, 3000);
 </script>
 
 </body>
