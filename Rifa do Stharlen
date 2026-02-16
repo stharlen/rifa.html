@@ -1,7 +1,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Rifa Online</title>
+<title>Rifa Online do Stharlen</title>
 <style>
     body {
         font-family: Arial, sans-serif;
